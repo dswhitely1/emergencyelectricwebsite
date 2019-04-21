@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Row, Image, Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Image from 'react-bootstrap/Image';
 import residential from '../../images/erik-mclean-1117932-unsplash.jpg';
 import commercial from '../../images/osama-saeed-1433239-unsplash.jpg';
 import industrial from '../../images/robin-sommer-559996-unsplash.jpg';

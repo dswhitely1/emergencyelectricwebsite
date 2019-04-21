@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import api from '../../api';
 import Scrollchor from 'react-scrollchor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -107,7 +111,7 @@ class ContactForm extends Component {
 								required
 								value={this.state.email}
 								type='email'
-								placeholder='email address'
+								placeholder='Email address'
 								onChange={this.handleEmailChange}
 								className='mb-2'
 							/>
