@@ -37,7 +37,9 @@ class Navigation extends Component {
 					<Button variant='outline-success' className='mr-2'>
 						Now Hiring
 					</Button>
-					<Button variant='outline-danger'>502-727-4923</Button>
+					<Button variant='outline-danger' href='tel:1-502-727-4923'>
+						502-727-4923
+					</Button>
 				</Navbar.Collapse>
 			</Navbar>
 		);

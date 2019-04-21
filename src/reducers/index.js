@@ -1,6 +1,7 @@
-// import { combineReducers } from 'redux';
-// import { reducer as formReducer } from 'redux-form';
-
-// export default combineReducers({
-// 	form : formReducer,
-// });
+import { combineReducers } from 'redux';
+import contactFormReducer from './contactFormReducer';
+import messageDisplayReducer from './messageDisplayReducer';
+export default combineReducers({
+	contactForm    : contactFormReducer,
+	messageDisplay : messageDisplayReducer,
+});
