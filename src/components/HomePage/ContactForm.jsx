@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import api from '../../api';
+import Scrollchor from 'react-scrollchor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 class ContactForm extends Component {
 	constructor() {
 		super();
@@ -144,6 +147,12 @@ class ContactForm extends Component {
 							onClick={this.handleClearForm}>
 							Clear Form
 						</Button>
+
+						<Scrollchor
+							to='#page-top'
+							className='btn btn-danger btn-lg float-right'>
+							<FontAwesomeIcon icon={faAngleDoubleUp} />
+						</Scrollchor>
 					</Form>
 				</Container>
 			</section>

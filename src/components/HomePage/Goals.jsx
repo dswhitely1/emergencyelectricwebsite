@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
-
+import Scrollchor from 'react-scrollchor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 const Goals = () => {
 	return (
 		<section
@@ -21,9 +23,16 @@ const Goals = () => {
 						Emergency Electric Inc.
 					</p>
 				</div>
-				<Button variant='outline-light' size='lg' href='#contact'>
+				<Scrollchor
+					to='#contact'
+					className='btn btn-outline-light btn-lg mr-2'>
 					Contact Us
-				</Button>
+				</Scrollchor>
+				<Scrollchor
+					to='#page-top'
+					className='btn btn-outline-light btn-lg'>
+					<FontAwesomeIcon icon={faAngleDoubleUp} />
+				</Scrollchor>
 			</Container>
 		</section>
 	);

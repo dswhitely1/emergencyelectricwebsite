@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'react-bootstrap';
+import Scrollchor from 'react-scrollchor';
 import './Header.css';
 class Header extends Component {
 	render() {
@@ -8,9 +9,9 @@ class Header extends Component {
 				<Container className='text-center my-auto'>
 					<h1 className='mb-1 text-light'>Emergency Electric</h1>
 					<h3 className='mb-5 text-light'>Lanesville, IN</h3>
-					<Button variant='danger' size='lg' href='#about'>
+					<Scrollchor className='btn btn-danger btn-lg' to='#about'>
 						Find Out More
-					</Button>
+					</Scrollchor>
 				</Container>
 			</section>
 		);
