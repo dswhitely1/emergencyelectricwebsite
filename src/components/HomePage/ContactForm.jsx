@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import api from '../../api';
 import Scrollchor from 'react-scrollchor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +12,7 @@ import {
 	valueContactFormChange,
 	resetContactForm,
 	formValidation,
+	sendMessage,
 } from '../../actions';
 class ContactForm extends Component {
 	handleSubmit(e) {
@@ -30,17 +30,9 @@ class ContactForm extends Component {
 			message   : this.props.contactForm.message,
 		};
 		if (form.checkValidity()) {
-			api.post('/send-email', values).then(res => {
-				console.table(res);
-				console.table(res.data);
-			});
-			console.log('Message was sent');
+			this.props.sendMessage(values);
+			this.props.resetContactForm();
 		}
-
-		// api.post('/send-email', values).then(res => {
-		// 	console.log(res);
-		// 	console.log(res.data);
-		// });
 	}
 	handleClearForm = () => {
 		this.props.resetContactForm();
@@ -167,10 +159,14 @@ class ContactForm extends Component {
 	}
 }
 const mapStateToProps = state => {
-	return { contactForm: state.contactForm };
+	return {
+		contactForm   : state.contactForm,
+		messageToggle : state.messageDisplay,
+	};
 };
 export default connect(mapStateToProps, {
 	formValidation,
 	resetContactForm,
 	valueContactFormChange,
+	sendMessage,
 })(ContactForm);
