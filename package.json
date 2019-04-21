@@ -1,8 +1,8 @@
 {
 	"name": "emerergencyelectric",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
-	"homepage": "https://www.emergencyelectric.com/beta",
+	"homepage": "https://www.emergencyelectricinc.com/",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.17",
 		"@fortawesome/free-solid-svg-icons": "^5.8.1",
@@ -16,9 +16,7 @@
 		"react-scripts": "2.1.8",
 		"react-scrollchor": "^6.0.0",
 		"redux": "^4.0.1",
-		"redux-form": "^8.2.0",
-		"redux-thunk": "^2.3.0",
-		"styled-components": "^4.2.0"
+		"redux-thunk": "^2.3.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -29,10 +27,5 @@
 	"eslintConfig": {
 		"extends": "react-app"
 	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not ie <= 11",
-		"not op_mini all"
-	]
+	"browserslist": [ ">0.2%", "not dead", "not ie <= 11", "not op_mini all" ]
 }

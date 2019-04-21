@@ -1,5 +1,9 @@
 import React from 'react';
-import { Container, Row, Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Scrollchor from 'react-scrollchor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 const About = () => {
 	return (
 		<section className='content-section bg-light' id='about'>
@@ -30,9 +34,16 @@ const About = () => {
 							confident that we meet this goal and that is why we
 							offer a 100% customer satisfaction guarantee.
 						</p>
-						<Button variant='danger' size='lg' href='#services'>
+						<Scrollchor
+							to='#services'
+							className='btn btn-danger btn-lg mr-2'>
 							What We Offer
-						</Button>
+						</Scrollchor>
+						<Scrollchor
+							to='#page-top'
+							className='btn btn-danger btn-lg'>
+							<FontAwesomeIcon icon={faAngleDoubleUp} />
+						</Scrollchor>
 					</div>
 				</Row>
 			</Container>
