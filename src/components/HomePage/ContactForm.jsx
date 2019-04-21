@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -8,62 +9,66 @@ import api from '../../api';
 import Scrollchor from 'react-scrollchor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
+import {
+	valueContactFormChange,
+	resetContactForm,
+	formValidation,
+} from '../../actions';
 class ContactForm extends Component {
-	constructor() {
-		super();
-		this.state = {
-			validated : false,
-			firstName : '',
-			lastName  : '',
-			email     : '',
-			message   : '',
-		};
-	}
-
 	handleSubmit(e) {
 		const form = e.currentTarget;
+		console.log(form.checkValidity());
 		if (form.checkValidity() === false) {
 			e.preventDefault();
 			e.stopPropagation();
 		}
-		this.setState({ validated: true });
-
+		this.props.formValidation(true);
 		const values = {
-			firstName : this.state.firstName,
-			lastName  : this.state.lastName,
-			email     : this.state.email,
-			message   : this.state.message,
+			firstName : this.props.contactForm.firstName,
+			lastName  : this.props.contactForm.lastName,
+			email     : this.props.contactForm.email,
+			message   : this.props.contactForm.message,
 		};
-		api.post('/send-email', values).then(res => {
-			console.log(res);
-			console.log(res.data);
-		});
+		if (form.checkValidity()) {
+			api.post('/send-email', values).then(res => {
+				console.table(res);
+				console.table(res.data);
+			});
+			console.log('Message was sent');
+		}
+
+		// api.post('/send-email', values).then(res => {
+		// 	console.log(res);
+		// 	console.log(res.data);
+		// });
 	}
 	handleClearForm = () => {
-		this.setState({
-			firstName : '',
-			lastName  : '',
-			email     : '',
-			message   : '',
-		});
+		this.props.resetContactForm();
 	};
 	handleFirstNameChange = e => {
-		this.setState({ firstName: e.target.value });
+		this.props.valueContactFormChange('firstName', e.target.value);
 	};
 
 	handleLastNameChange = e => {
-		this.setState({ lastName: e.target.value });
+		this.props.valueContactFormChange('lastName', e.target.value);
 	};
 
 	handleEmailChange = e => {
-		this.setState({ email: e.target.value });
+		this.props.valueContactFormChange('email', e.target.value);
 	};
 
 	handleMessageChange = e => {
-		this.setState({ message: e.target.value });
+		this.props.valueContactFormChange('message', e.target.value);
 	};
 	render() {
-		const { validated } = this.state;
+		const {
+			validated,
+			firstName,
+			lastName,
+			email,
+			message,
+		} = this.props.contactForm;
+
 		return (
 			<section className='content-section bg-light' id='contact'>
 				<Container>
@@ -81,7 +86,7 @@ class ContactForm extends Component {
 									<Form.Label>First Name</Form.Label>
 									<Form.Control
 										required
-										value={this.state.firstName}
+										value={firstName}
 										type='text'
 										placeholder='First name'
 										onChange={this.handleFirstNameChange}
@@ -94,7 +99,7 @@ class ContactForm extends Component {
 									<Form.Label>Last Name</Form.Label>
 									<Form.Control
 										required
-										value={this.state.lastName}
+										value={lastName}
 										type='text'
 										placeholder='Last Name'
 										onChange={this.handleLastNameChange}
@@ -107,7 +112,7 @@ class ContactForm extends Component {
 							<Form.Label>Email Address</Form.Label>
 							<Form.Control
 								required
-								value={this.state.email}
+								value={email}
 								type='email'
 								placeholder='Email address'
 								onChange={this.handleEmailChange}
@@ -125,7 +130,7 @@ class ContactForm extends Component {
 								rows={4}
 								placeholder='Enter Message Here'
 								required
-								value={this.state.message}
+								value={message}
 								onChange={this.handleMessageChange}
 							/>
 							<Form.Control.Feedback type='invalid'>
@@ -161,5 +166,11 @@ class ContactForm extends Component {
 		);
 	}
 }
-
-export default ContactForm;
+const mapStateToProps = state => {
+	return { contactForm: state.contactForm };
+};
+export default connect(mapStateToProps, {
+	formValidation,
+	resetContactForm,
+	valueContactFormChange,
+})(ContactForm);

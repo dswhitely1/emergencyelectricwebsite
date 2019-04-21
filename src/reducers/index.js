@@ -1,6 +1,6 @@
-// import { combineReducers } from 'redux';
-// import { reducer as formReducer } from 'redux-form';
+import { combineReducers } from 'redux';
+import contactFormReducer from './contactFormReducer';
 
-// export default combineReducers({
-// 	form : formReducer,
-// });
+export default combineReducers({
+	contactForm : contactFormReducer,
+});
