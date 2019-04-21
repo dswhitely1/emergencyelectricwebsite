@@ -27,8 +27,6 @@ class ContactForm extends Component {
 			e.stopPropagation();
 		}
 		this.setState({ validated: true });
-		e.preventDefault();
-		e.stopPropagation();
 
 		const values = {
 			firstName : this.state.firstName,
