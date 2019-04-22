@@ -10,24 +10,28 @@ import {
 	PERSONAL_DATA_PHONE_NUMBER,
 	PERSONAL_DATA_ALT_PHONE_NUMBER,
 	PERSONAL_DATA_EMAIL,
+	PERSONAL_DATA_VALIDATION,
 } from '../../actions/types';
 
 const INITIAL_STATE = {
+	validated      : false,
 	firstName      : '',
 	lastName       : '',
 	perfName       : '',
 	address1       : '',
 	address2       : '',
 	city           : '',
-	state          : '',
-	zipCode        : 0,
-	phoneNumber    : 0,
-	altPhoneNumber : 0,
+	state          : 'IN',
+	zipCode        : '',
+	phoneNumber    : '',
+	altPhoneNumber : '',
 	email          : '',
 };
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case PERSONAL_DATA_VALIDATION:
+			return { ...state, validated: action.payload.validated };
 		case PERSONAL_DATA_FIRST_NAME:
 			return { ...state, firstName: action.payload.firstName };
 		case PERSONAL_DATA_LAST_NAME:

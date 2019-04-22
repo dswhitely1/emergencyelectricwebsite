@@ -11,12 +11,20 @@ import {
 	PERSONAL_DATA_PHONE_NUMBER,
 	PERSONAL_DATA_ALT_PHONE_NUMBER,
 	PERSONAL_DATA_EMAIL,
+	PERSONAL_DATA_VALIDATION,
 } from '../types';
 
 export const applyClick = value => {
 	return {
 		type    : APPLICATION_ROUTE,
 		payload : value,
+	};
+};
+
+export const personalDataValidation = value => {
+	return {
+		type    : PERSONAL_DATA_VALIDATION,
+		payload : { validated: value },
 	};
 };
 
@@ -55,13 +63,13 @@ export const valueApplicationPersData = (item, value) => {
 			return { type: PERSONAL_DATA_ZIPCODE, payload: { zipCode: value } };
 		case 'phoneNumber':
 			return {
-				type: PERSONAL_DATA_PHONE_NUMBER,
-				payload: { phoneNumber: value },
+				type    : PERSONAL_DATA_PHONE_NUMBER,
+				payload : { phoneNumber: value },
 			};
 		case 'altPhoneNumber':
 			return {
-				type: PERSONAL_DATA_ALT_PHONE_NUMBER,
-				payload: { altPhoneNumber: value },
+				type    : PERSONAL_DATA_ALT_PHONE_NUMBER,
+				payload : { altPhoneNumber: value },
 			};
 		case 'email':
 			return { type: PERSONAL_DATA_EMAIL, payload: { email: value } };

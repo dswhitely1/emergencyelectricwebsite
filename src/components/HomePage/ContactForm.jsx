@@ -17,7 +17,6 @@ import {
 class ContactForm extends Component {
 	handleSubmit(e) {
 		const form = e.currentTarget;
-		console.log(form.checkValidity());
 		if (form.checkValidity() === false) {
 			e.preventDefault();
 			e.stopPropagation();

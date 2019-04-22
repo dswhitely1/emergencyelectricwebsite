@@ -20,8 +20,8 @@ export default (state = INITIAL_STATE, action) => {
 		case CONTACT_FORM_VALIDATION:
 			return {
 				...state,
-				validated: action.payload.validated,
-				res: action.payload.res,
+				validated : action.payload.validated,
+				res       : action.payload.res,
 			};
 		case RESET_CONTACT_FORM:
 			return {
