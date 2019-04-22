@@ -1,7 +1,7 @@
 import { APPLICATION_ROUTE } from '../actions/types';
 
 const INITIAL_STATE = {
-	route           : false,
+	route           : true,
 	btnColorVariant : 'success',
 	btnText         : `Apply Now`,
 };

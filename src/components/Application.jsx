@@ -3,7 +3,8 @@ import Introduction from './Application/Introduction';
 import PersonalData from './Application/PersonalData';
 import PersonalData2 from './Application/PersonalData2';
 import './ContentSection.css';
-import WorkHistory from "./Application/WorkHistory";
+import WorkHistory from './Application/WorkHistory';
+import Education from './Application/Education';
 class Application extends Component {
 	render() {
 		return (
@@ -12,6 +13,7 @@ class Application extends Component {
 				<PersonalData />
 				<PersonalData2 />
 				<WorkHistory />
+				<Education />
 			</div>
 		);
 	}
