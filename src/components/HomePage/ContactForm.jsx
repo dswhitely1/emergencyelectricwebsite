@@ -13,7 +13,7 @@ import {
 	resetContactForm,
 	formValidation,
 	sendMessage,
-} from '../../actions';
+} from '../../actions/creators/formActions';
 class ContactForm extends Component {
 	handleSubmit(e) {
 		const form = e.currentTarget;

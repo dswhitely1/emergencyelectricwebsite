@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import MessageDisplay from './MessageDisplay';
 import Header from './Header';
 import ContentSection from './ContentSection';
+import Application from './Application';
 import Footer from './Footer';
 
 import './App.css';
@@ -13,7 +14,12 @@ class App extends Component {
 			<div id='page-top'>
 				<Navigation />
 				<Header />
-				<ContentSection />
+				{this.props.appRoute.route ? (
+					<Application />
+				) : (
+					<ContentSection />
+				)}
+
 				{this.props.messageToggle.messageDisplay ? (
 					<MessageDisplay />
 				) : null}
@@ -26,7 +32,10 @@ class App extends Component {
 	}
 }
 const mapStateToProps = state => {
-	return { messageToggle: state.messageDisplay };
+	return {
+		messageToggle : state.messageDisplay,
+		appRoute      : state.applicationRoute,
+	};
 };
 
 export default connect(mapStateToProps)(App);
