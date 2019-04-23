@@ -4,6 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { applyClick } from '../actions/creators/applicationActions';
 import { Navbar, Button } from 'react-bootstrap';
 import Scrollchor from 'react-scrollchor';
+const baseUrl = process.env.PUBLIC_URL;
 class Navigation extends Component {
 	handleClick = e => {
 		if (this.props.route.route) {
@@ -19,10 +20,10 @@ class Navigation extends Component {
 					Emergency Electric
 				</Scrollchor>
 
-				<LinkContainer to='/' activeClassName=''>
+				<LinkContainer to={baseUrl + '/'} activeClassName=''>
 					<Button variant='outline-success mr-3 btn-sm'>Home</Button>
 				</LinkContainer>
-				<LinkContainer to='/apply' activeClassName=''>
+				<LinkContainer to={baseUrl + '/apply'} activeClassName=''>
 					<Button variant='outline-success mr-auto btn-sm'>
 						Apply Now
 					</Button>
