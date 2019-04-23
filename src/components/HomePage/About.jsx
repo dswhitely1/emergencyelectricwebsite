@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 const About = () => {
 	return (
-		<section className='content-section bg-light' id='about'>
+		<section className='content-section bg-light' id='introduction'>
 			<Container className='text-center'>
 				<Row>
 					<div className='col-lg-10 mx-auto'>
