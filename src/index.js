@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './components/App';
 import reducers from './reducers';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './bootstrap.css';
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancer = composeWithDevTools(applyMiddleware(thunk));

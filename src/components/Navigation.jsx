@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { applyClick } from '../actions/creators/applicationActions';
-import { Navbar, Button } from 'react-bootstrap';
+import { Navbar, Button, Container, Nav } from 'react-bootstrap';
 import Scrollchor from 'react-scrollchor';
 const baseUrl = process.env.PUBLIC_URL;
 class Navigation extends Component {
@@ -15,23 +15,47 @@ class Navigation extends Component {
 	};
 	render() {
 		return (
-			<Navbar bg='transparent' expand='sm' fixed='top'>
-				<Scrollchor to='#' className='navbar-brand mr-3'>
-					Emergency Electric
-				</Scrollchor>
-
-				<LinkContainer to={baseUrl + '/'} activeClassName=''>
-					<Button variant='outline-success mr-3 btn-sm'>Home</Button>
-				</LinkContainer>
-				<LinkContainer to={baseUrl + '/apply'} activeClassName=''>
-					<Button variant='outline-success mr-auto btn-sm'>
-						Apply Now
-					</Button>
-				</LinkContainer>
-
-				<Button variant='info btn-sm' href='tel:1-502-727-4923'>
-					502-727-4923
-				</Button>
+			<Navbar
+				bg='success'
+				variant='dark'
+				expand='lg'
+				fixed='top'
+				className='text-uppercase'>
+				<Container className='justify-content-center'>
+					<Navbar.Toggle
+						aria-controls='basic-navbar-nav'
+						className='navbar-toggler-right border-0'
+					/>
+					<Navbar.Collapse
+						id='basic-navbar-nav'
+						className='text-center justify-content-center'>
+						<Nav.Link className='mx-2 text-light' href='#page-top'>
+							Home
+						</Nav.Link>
+						<Nav.Link
+							className='mx-2 text-light'
+							href='#introduction'>
+							About Us
+						</Nav.Link>
+						<Nav.Link className='mx-2 text-light' href='#services'>
+							Services
+						</Nav.Link>
+						<Navbar.Brand className='shadow nav-link text-white  mr-0'>
+							<strong>Emergency Electric INC</strong>
+						</Navbar.Brand>
+						<Nav.Link
+							className='mx-2 text-light'
+							href='#testimonials'>
+							Testimonials
+						</Nav.Link>
+						<Nav.Link className='mx-2 text-light' href='#goals'>
+							Goals
+						</Nav.Link>
+						<Nav.Link className='mx-2 text-light' href='#contact'>
+							Contact Us
+						</Nav.Link>
+					</Navbar.Collapse>
+				</Container>
 			</Navbar>
 		);
 	}
