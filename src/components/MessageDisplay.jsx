@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { showMessageDisplay } from '../actions';
+import { showMessageDisplay } from '../actions/creators/globalActions';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 class MessageDisplay extends Component {
@@ -10,9 +10,7 @@ class MessageDisplay extends Component {
 	renderList = () => {
 		return (
 			<div className='text-center'>
-				<Alert
-					variant={this.props.messageToggle.variant}
-					className='mb-0'>
+				<Alert variant={this.props.messageToggle.variant} className='mb-0'>
 					{this.props.messageToggle.message}
 					<Button
 						variant={`outline-${this.props.messageToggle.variant}`}

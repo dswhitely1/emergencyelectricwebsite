@@ -1,0 +1,18 @@
+POST http://localhost:4000/message
+Content-Type: application/json
+
+{
+  "firstName" : "Donald",
+  "lastName" : "Whitely",
+  "email" : "dswhitely1@gmail.com",
+  "message" : "Testing from new Extension",
+  "createdAt" : 1556215909911
+}
+
+###
+
+http://localhost:4000/messages
+
+
+###
+DELETE http://localhost:4000/deletemessage/8

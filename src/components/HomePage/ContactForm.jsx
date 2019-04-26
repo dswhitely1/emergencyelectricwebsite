@@ -17,6 +17,8 @@ import {
 class ContactForm extends Component {
 	handleSubmit(e) {
 		const form = e.currentTarget;
+		e.preventDefault();
+		e.stopPropagation();
 		if (form.checkValidity() === false) {
 			e.preventDefault();
 			e.stopPropagation();
@@ -27,6 +29,7 @@ class ContactForm extends Component {
 			lastName  : this.props.contactForm.lastName,
 			email     : this.props.contactForm.email,
 			message   : this.props.contactForm.message,
+			createdAt : new Date().toString(),
 		};
 		if (form.checkValidity()) {
 			this.props.sendMessage(values);
@@ -112,9 +115,7 @@ class ContactForm extends Component {
 							<Form.Control.Feedback type='invalid'>
 								Please provide a valid email address
 							</Form.Control.Feedback>
-							<Form.Control.Feedback>
-								Looks good!
-							</Form.Control.Feedback>
+							<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 							<Form.Label>Message</Form.Label>
 							<Form.Control
 								as='textarea'
@@ -127,15 +128,9 @@ class ContactForm extends Component {
 							<Form.Control.Feedback type='invalid'>
 								Required
 							</Form.Control.Feedback>
-							<Form.Control.Feedback>
-								Looks good!
-							</Form.Control.Feedback>
+							<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 						</Form.Group>
-						<Button
-							type='submit'
-							variant='danger'
-							className='mr-2'
-							size='lg'>
+						<Button type='submit' variant='danger' className='mr-2' size='lg'>
 							Send Message
 						</Button>
 						<Button

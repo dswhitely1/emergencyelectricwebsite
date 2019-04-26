@@ -66,6 +66,7 @@ export const valueContactFormChange = (item, value) => {
 };
 
 export const sendMessage = values => async dispatch => {
-	const response = await API.post('/send-email', values);
+	const response = await API.post('/message', values);
+	console.log(response.status);
 	dispatch({ type: UPDATE_SERVER_RESPONSE, payload: response });
 };

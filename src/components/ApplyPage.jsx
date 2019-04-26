@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
-import Header from './Header';
+import Header from './Header2';
 import Application from './Application';
 import MessageDisplay from './MessageDisplay';
 import Footer from './Footer';
@@ -13,9 +13,9 @@ class HomePage extends Component {
 				<Navigation />
 				<Header />
 				<Application />
-				{this.props.messageToggle.messageDisplay ? (
-					<MessageDisplay />
-				) : null}
+				{
+					this.props.messageToggle.messageDisplay ? <MessageDisplay /> :
+					null}
 				<Footer />
 			</div>
 		);

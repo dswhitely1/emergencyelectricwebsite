@@ -11,12 +11,12 @@ export default (state = INITIAL_STATE, action) => {
 		case SHOW_MESSAGE_DISPLAY:
 			return { ...state, messageDisplay: action.payload.messageDisplay };
 		case UPDATE_SERVER_RESPONSE:
-			if (action.payload.statusText === 'OK') {
+			if (action.payload.status === 201) {
 				return {
 					...state,
 					res            : action.payload.statusText,
 					messageDisplay : true,
-					variant        : 'success',
+					variant        : 'info',
 					message        : `You're message to Emergency Electric Inc. has been successfully sent!`,
 				};
 			} else {
@@ -24,7 +24,7 @@ export default (state = INITIAL_STATE, action) => {
 					...state,
 					res            : action.payload.statusText,
 					messageDisplay : true,
-					variant        : 'danger',
+					variant        : 'primary',
 					message        : `You're message was not sent, please try again in a few moments.`,
 				};
 			}

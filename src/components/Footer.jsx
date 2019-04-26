@@ -33,18 +33,14 @@ const Footer = () => {
 						<h2 className='mb-4'>Now Hiring</h2>
 						<form>
 							<fieldset className='form-group'>
-								<label forName='applyEmail'>
-									Get our Application
-								</label>
+								<label htmlFor='applyEmail'>Get our Application</label>
 								<input
 									type='email'
 									className='form-control'
 									placeholder='Enter email'
 								/>
 							</fieldset>
-							<button
-								type='submit'
-								className='btn btn-outline-light'>
+							<button type='submit' className='btn btn-outline-light'>
 								Submit
 							</button>
 						</form>
@@ -53,13 +49,13 @@ const Footer = () => {
 					<div className='p-4 col-md-3'>
 						<h2 className='mb-4'>Services</h2>
 						<p>
-							24 Hour Service<br />Licensed & Insured<br />Residential
-							and Commercial
+							24 Hour Service<br />Licensed & Insured<br />Residential and
+							Commercial
 						</p>
 					</div>
 				</Row>
 				<Row>
-					<div ClassName='col-md-12 mt-3'>
+					<div className='col-md-12 mt-3'>
 						<p className='text-center'>{`Copyright 2019 - All rights reserved`}</p>
 					</div>
 				</Row>
@@ -68,9 +64,7 @@ const Footer = () => {
 			<p>Copyright 2019 - Emergency Electric Inc</p>
 			<p>
 				Designed by{' '}
-				<a href='https://www.donwhitely.com'>
-					Digital Solutions by Don
-				</a>
+				<a href='https://www.donwhitely.com'>Digital Solutions by Don</a>
 			</p>
 		</footer>
 	);

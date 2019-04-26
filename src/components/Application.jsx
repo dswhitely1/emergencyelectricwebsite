@@ -302,9 +302,15 @@ class Application extends Component {
 										SECTION ON THE APPLICATION AND MAKE SURE THAT THIS IS THE
 										CORRECT WORDING THAT YOU WANT TO USE
 									</p>
-									<Form.Check custom inline label="Check Here if you have read the conditions of the application" id="terms" />
-									<Button variant="outline-light" type="submit">Submit Application</Button>
-									
+									<Form.Check
+										custom
+										inline
+										label='Check Here if you have read the conditions of the application'
+										id='terms'
+									/>
+									<Button variant='outline-light' type='submit'>
+										Submit Application
+									</Button>
 								</div>
 							</div>
 						</Form>
